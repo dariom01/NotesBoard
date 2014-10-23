@@ -11,6 +11,40 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141022131824) do
+ActiveRecord::Schema.define(version: 20141022154445) do
+
+  create_table "boards", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "format_id"
+  end
+
+  add_index "boards", ["format_id"], name: "index_boards_on_format_id"
+
+  create_table "formats", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "notes", force: true do |t|
+    t.text     "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "section_id"
+  end
+
+  add_index "notes", ["section_id"], name: "index_notes_on_section_id"
+
+  create_table "sections", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "board_id"
+  end
+
+  add_index "sections", ["board_id"], name: "index_sections_on_board_id"
 
 end
