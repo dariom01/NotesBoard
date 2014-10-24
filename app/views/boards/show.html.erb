@@ -11,31 +11,21 @@
 
 <div id="sections" style="display: flex;flex-direction: row" >
 
-  <% @board.sections.each do |section| %>
+  <% @board.sections.each do |section|
+    @section = section
+     if @section.id == nil
+       @section.id =99
+     end
+  %>
          <div class="section" style="flex-grow: 1" >
-      <%= section.name %>
-  <%= link_to 'Destroy section', [section.board, section],
-                                  method: :delete, data:{ confirm: 'Are you sure?' } %>
+<%=section.name %>  <%= link_to 'Destroy section',  section_path(@section),method: :delete, data:{ confirm: 'Are you sure?' } %>
     <% section.notes.each do |note| %>
       <div style="border: solid 1px">
-        I am a note
-      </div>
-      <div style="border: solid 1px">
-        I am a note
+        <%= note.body %>
       </div>
   <% end%>
-      <%= form_for([section, section.notes.build]) do |f| %>
-          <p>
-            <%= f.label :body %><br>
-            <%= f.text_area :body %>
-          </p>
-          <p>
-            <%= f.submit %>
-          </p>
 
-         <% end %>
-
-
+  <%= link_to 'New note', new_section_note_path({section_id: @section.id}) %>
 
       </div>
   <% end %>
