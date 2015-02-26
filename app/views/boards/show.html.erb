@@ -18,14 +18,14 @@
      end
   %>
          <div class="section" style="flex-grow: 1" >
-<%=section.name %>  <%= link_to 'Destroy section',  section_path(@section),method: :delete, data:{ confirm: 'Are you sure?' } %>
+<%=section.name %>  <%= link_to 'Destroy section', [section.board, section],method: :delete, data:{ confirm: 'Are you sure?' } %>
     <% section.notes.each do |note| %>
       <div style="border: solid 1px">
         <%= note.body %>
       </div>
   <% end%>
 
-  <%= link_to 'New note', new_section_note_path({section_id: @section.id}) %>
+  <%= link_to 'New note', new_board_section_note_path({board_id: @section.board.id,section_id: @section.id}) %>
 
       </div>
   <% end %>

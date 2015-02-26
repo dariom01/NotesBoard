@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :boards , shallow: true do
+  resources :boards do
     resources :sections  do
       resources :notes
     end
