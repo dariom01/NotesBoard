@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141022154445) do
+ActiveRecord::Schema.define(version: 20150227195300) do
 
   create_table "boards", force: true do |t|
     t.string   "name"
@@ -42,9 +42,6 @@ ActiveRecord::Schema.define(version: 20141022154445) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "board_id"
   end
-
-  add_index "sections", ["board_id"], name: "index_sections_on_board_id"
 
 end
