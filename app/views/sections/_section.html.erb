@@ -1,0 +1,19 @@
+﻿<div class="section" style="border: solid 1px;width:50%" >
+	  <div class="section-header">
+	  <h4><%=section.name %></h4> 
+	  <%= link_to 'Destroy section', [section.board, section],method: :delete, data:{ confirm: 'Are you sure?' } 
+	  %>
+	  </div>
+<div class="notes" style="display: flex;flex-wrap:wrap;">
+<% section.notes.each do |note| %>
+      <div class="note" style="border: solid 1px;height:100px;width:50%">
+        <%= note.body %>
+      </div>
+  <% end%>
+</div>
+ 
+
+  <%= link_to 'New note', new_board_section_note_path({board_id: section.board.id,section_id: section.id}) 
+  %>
+
+      </div>
