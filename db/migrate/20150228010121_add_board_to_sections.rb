@@ -1,5 +1,5 @@
 class AddBoardToSections < ActiveRecord::Migration
-  def change
+   def change
     add_reference :sections, :board, index: true
   end
 end

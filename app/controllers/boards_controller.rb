@@ -15,6 +15,9 @@ end
   def show
     @board = Board.find(params[:id])
   end
+  def edit
+    @board = Board.find(params[:id])
+  end
   def create
     @board = Board.new(board_params)
     if @board.save
