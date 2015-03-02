@@ -1,4 +1,4 @@
-﻿<div class="section" style="border: solid 1px;width:50%" >
+﻿<div class="section" style="border: solid 1px;" >
 <%
 @section = section
 if section.id==nil
@@ -13,7 +13,7 @@ end %>
 <% section.notes.each do |note| 
 
 %>
-      <div class="note" style="border: solid 1px;height:100px;width:50%">
+      <div class="note" style="border: solid 1px;height:102px;width:182px">
         <%= note.body %>
       </div>
   <% end%>
@@ -23,4 +23,4 @@ end %>
   <%= link_to 'New note', new_board_section_note_path({board_id: section.board.id,section_id: @section.id}) 
   %>
 
-      </div>
+</div>

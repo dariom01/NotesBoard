@@ -1,7 +1,9 @@
 <h2><%= @board.name %></h2>
 <%= render 'sections/form' %>
-<div class="sections" style="display: flex;border: solid 1px;flex-wrap:wrap;" >
+<div class="panel panel-default"   >
+<div class="panel-body" style="display: flex;flex-wrap:wrap;">
 <%= render @board.sections%>
 
 </div>
-<%= link_to 'Back', boards_path %>
+ </div>
+<%= link_to 'Back', boards_path %>  
