@@ -19,9 +19,14 @@ end
     @board = Board.find(params[:id])
   end
   def create
-    @board = Board.new(board_params)
+    @board = Board.new(board_params_new)
     if @board.save
-    redirect_to @board
+	format = Format.find(@board.format_id)
+	format.Titles.all.each do |t|
+		@board.sections.create(name: t.text)
+	end
+
+	redirect_to @board
 	else
 	render 'new'
 	end
@@ -30,15 +35,20 @@ end
   def update
   @board = Board.find(params[:id])
  
-  if @board.update(board_params)
+  if @board.update(board_params_edit)
     redirect_to @board
   else
     render 'edit'
   end
 end
 private
-  def board_params
+  def board_params_new
+    params.require(:board).permit(:name, :description, :format_id)
+	  
+  end
+   def board_params_edit
     params.require(:board).permit(:name, :description)
+	  
   end
 
 end

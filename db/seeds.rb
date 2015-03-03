@@ -5,3 +5,11 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+  format = Format.create(name: "1 Section")
+  Title.create(text: "heading 1",format: format)
+  
+  format = Format.create(name: "2 Section")
+  Title.create(text: "heading 1",format: format)
+  Title.create(text: "heading 2",format: format)
+  
