@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :boards do
     resources :sections  do
-      resources :notes
+      resources :notes, shallow: true
     end
   end
   #resources :formats

@@ -1,12 +1,10 @@
-﻿<div class="section" style="border: solid 1px;width:50%" >
-<% @section = section
-if section.id==nil
-@section.id = 99
-end %>
-	  <div class="section-header">
-	  <h4><%=section.name %></h4> 
-	  <%= link_to 'Destroy section', [section.board, section],method: :delete, data:{ confirm: 'Are you sure?' } 
-	  %>
+﻿<div class="section" >
+	  <div class="section-header text-center">
+	  <h4 style="display:inline"><%=section.name %></h4>
+	  <%= link_to  new_board_section_note_path({board_id: section.board.id,section_id: section.id}) do %>
+	  <i class="glyphicon glyphicon-plus"></i>
+	  <% end %>
+	  
 	  </div>
 <ul class="notes" style="display: flex;flex-wrap:wrap;">
 
@@ -16,8 +14,8 @@ end %>
   
 </ul>
  
+ 
 
-  <%= link_to 'New note', new_board_section_note_path({board_id: section.board.id,section_id: @section.id}) 
-  %>
+  
 
 </div>

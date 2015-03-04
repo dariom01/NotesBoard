@@ -22,7 +22,7 @@ end
     @board = Board.new(board_params_new)
     if @board.save
 	format = Format.find(@board.format_id)
-	format.Titles.all.each do |t|
+	format.titles.all.each do |t|
 		@board.sections.create(name: t.text)
 	end
 

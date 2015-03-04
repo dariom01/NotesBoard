@@ -1,7 +1,7 @@
 <h2><%= @board.name %></h2>
-<%= render 'sections/form' %>
+
 <div class="panel panel-default"   >
-<div class="panel-body" style="display: flex;flex-wrap:wrap;">
+<div class="panel-body" style="display: flex;flex-flow: cloumn wrap;justify-content: space-around;">
 <%= render @board.sections%>
 
 </div>
