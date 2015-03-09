@@ -1,9 +1,9 @@
 <h2><%= @board.name %></h2>
-
+<td><%= link_to 'Edit', edit_board_path(@board) %></td>
+<td><%= link_to 'Destroy', board_path(@board),method: :delete,data: {confirm:'Are you sure?'} %></td>
 <div class="panel panel-default"   >
-<div class="panel-body" style="display: flex;flex-flow: cloumn wrap;justify-content: space-around;">
+<div class="panel-body" style="display: flex;flex-flow: column wrap;justify-content: space-around;">
 <%= render @board.sections%>
 
 </div>
- </div>
-<%= link_to 'Back', boards_path %>  
+ </div> 

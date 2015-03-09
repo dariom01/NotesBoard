@@ -2,6 +2,7 @@ class NotesController < ApplicationController
 
   def new
     @section = Section.find(params[:section_id])
+	@board= @section.board
     @note = @section.notes.new
   end
 
@@ -17,6 +18,8 @@ class NotesController < ApplicationController
   end
   def edit
     @note = Note.find(params[:id])
+	@section = @note.section
+	@board= @section.board
   end
   def update
     
