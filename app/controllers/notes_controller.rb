@@ -3,7 +3,13 @@ class NotesController < ApplicationController
   def new
     @section = Section.find(params[:section_id])
 	@board= @section.board
-    @note = @section.notes.new
+	@note= @section.notes.new
+	@path = [@board,@section,@note]
+  end
+  
+  def edit
+    @note = Note.find(params[:id])
+	@path= @note
   end
 
   def create
@@ -16,11 +22,7 @@ class NotesController < ApplicationController
     end
 
   end
-  def edit
-    @note = Note.find(params[:id])
-	@section = @note.section
-	@board= @section.board
-  end
+ 
   def update
     
     @note = Note.find(params[:id])

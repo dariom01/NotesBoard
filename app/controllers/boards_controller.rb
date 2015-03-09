@@ -1,6 +1,7 @@
 class BoardsController < ApplicationController
   def new
 	@board = Board.new
+	@disableFormatSelection = false
   end
   def destroy
   @board = Board.find(params[:id])
@@ -17,6 +18,7 @@ end
   end
   def edit
     @board = Board.find(params[:id])
+	@disableFormatSelection = true
   end
   def create
     @board = Board.new(board_params_new)
