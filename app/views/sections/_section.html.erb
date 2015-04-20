@@ -1,7 +1,7 @@
-﻿<div class="section" >
+﻿<div class="section">
 	  <div class="section-header text-center">
 	  <h4 style="display:inline"><%=section.name %></h4>
-	  <%= link_to  new_board_section_note_path({board_id: section.board.id,section_id: section.id}) do %>
+	  <%= link_to  new_section_note_path(section_id: section.id) do %>
 	  <i class="glyphicon glyphicon-plus"></i>
 	  <% end %>
 	  

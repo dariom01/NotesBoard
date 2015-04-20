@@ -8,6 +8,9 @@ Bundler.require(*Rails.groups)
 
 module ScrumFit
   class Application < Rails::Application
+
+    # the path relative to app/assets/javascripts
+    config.angular_templates.ignore_prefix  = 'angular-app/templates/'
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.

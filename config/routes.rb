@@ -1,18 +1,33 @@
 Rails.application.routes.draw do
-  resources :boards do
-    resources :sections  do
+
+  #resources :boards 
+get 'home' => 'home#index'
+#get 'boards/:id' => 'boards#show'
+
+  namespace :api do
+    resources :boards , defaults: { format: :json } do
+      resources :sections, shallow: true
+    end
+    resources :sections , only: [:index], defaults: { format: :json }  do
       resources :notes, shallow: true
     end
+    resources :formats,only: [:index] , defaults: { format: :json }
   end
+
+  
+  #resources :sections , only: [:index] do
+  #   resources :notes, shallow: true
+  #end
   #resources :formats
-  get 'home/index'
+  
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'home#index'
+  # root 'home#index'
 
+root 'home#index'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

@@ -1,0 +1,26 @@
+<div>
+<h2>{{board.name }}</h2>
+<div class="panel panel-default"   >
+<div class="panel-body" style="display: flex;flex-flow:row wrap;justify-content: space-around;">
+<div class="section" ng-repeat="i in board.sections">
+	  <div class="section-header text-center">
+	  <h4 style="display:inline">{{i.name}}</h4>
+	  <a href="" ng-click="newNote(i.id)"><i class="glyphicon glyphicon-plus"></i></a>
+	  
+
+	  
+	  </div>
+<ul class="notes" style="display: flex;flex-wrap:wrap;">
+<li ng-repeat="j in i.notes" class="note">
+  <a href=""  ng-click="editNote()" >
+  <p>{{j.body}}</p>
+  </a>
+</li> 
+    
+</ul>
+
+</div>
+
+</div>
+ </div> 
+ </div>

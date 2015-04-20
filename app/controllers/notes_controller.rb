@@ -4,7 +4,7 @@ class NotesController < ApplicationController
     @section = Section.find(params[:section_id])
 	@board= @section.board
 	@note= @section.notes.new
-	@path = [@board,@section,@note]
+	@path = [@section,@note]
   end
   
   def edit
